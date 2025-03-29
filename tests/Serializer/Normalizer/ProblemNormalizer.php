@@ -16,6 +16,9 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
  */
 final class ProblemNormalizer implements NormalizerInterface
 {
+    /**
+     * @psalm-suppress ParamNameMismatch In symfony/serializer <=6.4 1st argument named $object, but in >=7.0 named $data
+     */
     public function normalize(mixed $data, ?string $format = null, array $context = []): null|array|string|int|float|bool|\ArrayObject
     {
         if (false === $data instanceof FlattenException) {

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<serializer xmlns="http://symfony.com/schema/dic/serializer-mapping"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://symfony.com/schema/dic/serializer-mapping
+        https://symfony.com/schema/dic/serializer-mapping/serializer-mapping-1.0.xsd"
+>
+    <class name="Kenny1911\AjaxBundle\Tests\EventListener\DataResponse">
+        <attribute name="foo">
+            <group>foo</group>
+        </attribute>
+        <attribute name="bar">
+            <group>bar</group>
+        </attribute>
+    </class>
+</serializer>

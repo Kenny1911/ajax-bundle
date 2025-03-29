@@ -19,7 +19,7 @@ use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
-use Symfony\Component\Serializer\Mapping\Loader\AttributeLoader;
+use Symfony\Component\Serializer\Mapping\Loader\XmlFileLoader;
 use Symfony\Component\Serializer\Normalizer\PropertyNormalizer;
 use Symfony\Component\Serializer\Serializer;
 
@@ -36,7 +36,8 @@ final class AjaxRequestSubscriberTest extends TestCase
                     new ProblemNormalizer(),
                     new PropertyNormalizer(
                         new ClassMetadataFactory(
-                            new AttributeLoader(),
+                            // Using XML format, because symfony/serializer <=6.3 has not AttributeLoader
+                            new XmlFileLoader(__DIR__ . '/serializer_metadata.xml'),
                         ),
                     ),
                 ],
